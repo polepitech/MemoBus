@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
 
 .limelight {
   font-family: var(--font-Limelight), cursive;
