@@ -136,8 +136,8 @@ export default function Form() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectItem value="10h">12H00</SelectItem>
-                          <SelectItem value="11h">12H00</SelectItem>
+                          <SelectItem value="10h">10H00</SelectItem>
+                          <SelectItem value="11h">11H00</SelectItem>
                           <SelectItem value="12h">12H00</SelectItem>
                           <SelectItem value="13h">13H00</SelectItem>
                           <SelectItem value="14h">14H00</SelectItem>
