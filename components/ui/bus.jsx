@@ -23,7 +23,7 @@ export default function Bus() {
   }, []);
   return (
     <div className='flex justify-center gap-10 items-center'>
-      <h1 className='text-[6vw] limelight'>MemoBus</h1>
+      <h1 className='text-[9vw] md:text-[6vw] limelight'>MemoBus</h1>
       <div className="bus w-[25vw] lg:w-[15vw] relative">
         <Image className='van w-full' src='/assets/bus.png' width={2000} height={1000} alt='bus'/>
         <Image className='roue w-[20%] absolute bottom-[12%] left-[15%]' src='/assets/roue.png' width={200} height={200} alt='roue_arriere'/>
