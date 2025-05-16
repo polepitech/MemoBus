@@ -24,11 +24,14 @@ export async function POST(req){
             const ticket = await prisma.ticket.create({
                 data:data
             });
-            const mail = await fetch('https://memozyne.fr/api/mail', {
+            const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+            const mail = await fetch(`${baseUrl}/api/mail`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
+            const res = await mail.json()
+            .then(json => console.log(json));
             return NextResponse.json({message: "Ticket créé id : "+ ticket.id}, {status: 200});
             
         } catch (error) {

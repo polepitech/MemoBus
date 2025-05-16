@@ -6,13 +6,15 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req) {
 
     const body = await req.json();
-    const {prenom,email,Aller,Retour,Aller_Horraire,Retour_Horraire} = body;
+
+    const {Nom,Email,Aller,Retour,Aller_Horraire,Retour_Horraire} = body;
+
   try {
     const { data, error } = await resend.emails.send({
       from: 'Memozyne <dontreply@resend.dev>',
-      to: [email],
+      to: [Email],
       subject: 'MemoBus tonTicket',
-      react: EmailTemplate({ prenom: prenom,Aller:Aller,Retour:Retour,Aller_Horraire:Aller_Horraire,Retour_Horraire:Retour_Horraire, }),
+      react: EmailTemplate({ prenom: Nom,Aller:Aller,Retour:Retour,Aller_Horraire:Aller_Horraire,Retour_Horraire:Retour_Horraire }),
     });
 
     if (error) {
