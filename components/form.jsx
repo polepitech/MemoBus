@@ -19,6 +19,20 @@ import { gsap } from '@/lib/gsap';
 
 export default function Form() {
   const [loading, setLoading] = React.useState(false);
+  const [aller, setAller] = useState('');
+  const [retour, setRetour] = useState('');
+
+
+  const horairesAller = {
+    vendredi: ['15h', '17h', '20h'],
+    samedi: ['10h', '12h', '14h', '16h','18h'],
+    dimanche: ['12h','14h','16h', '18h'],
+  }
+  const horairesRetour = {
+    vendredi: [ '19h30'],
+    samedi: ['9h30', '11h30', '13h30', '15h30','17h30'],
+    dimanche: ['11h30','13h30','15h30', '17h30'],
+  }
 
   const handlesubmit = async (e) =>{
     e.preventDefault();
@@ -85,7 +99,9 @@ export default function Form() {
                   <Input required name='email' type="email" placeholder="Un mail ?" />
                   <Label>Aller</Label>
                   <div className="aller flex justify-between">
-                    <Select required name='Aller'>
+                    <Select required name='Aller' onValueChange={(e) => {
+                      setAller(e)
+                    }}>
                       <SelectTrigger className="w-[48%]">
                         <SelectValue placeholder="Choisi ton Jour" />
                       </SelectTrigger>
@@ -103,13 +119,11 @@ export default function Form() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectItem value="12h">12H00</SelectItem>
-                          <SelectItem value="13h">13H00</SelectItem>
-                          <SelectItem value="14h">14H00</SelectItem>
-                          <SelectItem value="15h">15H00</SelectItem>
-                          <SelectItem value="16h">16H00</SelectItem>
-                          <SelectItem value="17h">17H00</SelectItem>
-                          <SelectItem value="18h">18H00</SelectItem>
+                          {horairesAller[aller]?.map((horaire) => (
+                            <SelectItem key={horaire} value={horaire}>
+                              {horaire.toUpperCase()}
+                            </SelectItem>
+                          ))}
                         </SelectGroup>
                       </SelectContent>
                     </Select>
@@ -118,7 +132,9 @@ export default function Form() {
 
                   <Label>Retour ?</Label>
                   <div className="retour flex justify-between">
-                    <Select name='Retour'>
+                    <Select name='Retour' onValueChange={(e) => {
+                      setRetour(e)
+                    }}>
                       <SelectTrigger className="w-[48%]">
                         <SelectValue placeholder="Choisi ton Jour" />
                       </SelectTrigger>
@@ -136,15 +152,11 @@ export default function Form() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectItem value="10h">10H00</SelectItem>
-                          <SelectItem value="11h">11H00</SelectItem>
-                          <SelectItem value="12h">12H00</SelectItem>
-                          <SelectItem value="13h">13H00</SelectItem>
-                          <SelectItem value="14h">14H00</SelectItem>
-                          <SelectItem value="15h">15H00</SelectItem>
-                          <SelectItem value="16h">16H00</SelectItem>
-                          <SelectItem value="17h">17H00</SelectItem>
-                          <SelectItem value="18h">18H00</SelectItem>
+                          {horairesRetour[retour]?.map((horaire) => (
+                            <SelectItem key={horaire} value={horaire}>
+                              {horaire.toUpperCase()}
+                            </SelectItem>
+                          ))}
                         </SelectGroup>
                       </SelectContent>
                     </Select>
