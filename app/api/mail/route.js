@@ -11,7 +11,7 @@ export async function POST(req) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Memozyne <dontreply@resend.dev>',
+      from: 'Memozyne <dontreply@memozyne.fr>',
       to: [Email],
       subject: 'MemoBus tonTicket',
       react: EmailTemplate({ prenom: Nom,Aller:Aller,Retour:Retour,Aller_Horraire:Aller_Horraire,Retour_Horraire:Retour_Horraire }),
