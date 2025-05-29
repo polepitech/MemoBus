@@ -97,7 +97,7 @@ export default function Form() {
 
   return (
     <>
-      <Card className="card p-6 w-[85vw] md:w-[75vw] lg:w-[60vw] m-auto mt-4">
+      <Card className="card p-6 w-[95vw] xs:w-[85vw] md:w-[75vw] lg:w-[60vw] m-auto mt-2">
           <CardHeader>
             <CardTitle className={'text-2xl'}>Réserve ton ticket !</CardTitle>
             <div className="txt flex justify-between items-center">
@@ -110,13 +110,13 @@ export default function Form() {
                   <Input required name='prenom' type="text" placeholder="Ton petit nom ?" />
                   <Input required name='email' type="email" placeholder="Un mail ?" />
                   <Input required name='telephone' type="telephone" placeholder="Un 06 ?" />
-                  <Label>Aller</Label>
+                  {/* <Label>Aller</Label> */}
                   <div className="aller flex justify-between">
                     <Select name='Aller' onValueChange={(e) => {
                       setAller(e)
                     }}>
                       <SelectTrigger className="w-[48%]">
-                        <SelectValue placeholder="Choisi ton Jour" />
+                        <SelectValue placeholder="Aller" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
@@ -143,13 +143,13 @@ export default function Form() {
                   </div>
 
 
-                  <Label>Retour ?</Label>
+                  {/* <Label>Retour ?</Label> */}
                   <div className="retour flex justify-between">
                     <Select name='Retour' onValueChange={(e) => {
                       setRetour(e)
                     }}>
                       <SelectTrigger className="w-[48%]">
-                        <SelectValue placeholder="Choisi ton Jour" />
+                        <SelectValue placeholder="Retour" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
