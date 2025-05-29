@@ -19,8 +19,9 @@ model Ticket {
   id              Int      @id @default(autoincrement())
   Nom             String
   Email           String
-  Aller           String
-  Aller_Horraire  String
+  Telephone       Int      @default(0)
+  Aller           String   @default("No")
+  Aller_Horraire  String   @default("No")
   Retour          String   @default("No")
   Retour_Horraire String   @default("No")
   createdAt       DateTime @default(now())

@@ -887,16 +887,19 @@ export namespace Prisma {
 
   export type TicketAvgAggregateOutputType = {
     id: number | null
+    Telephone: number | null
   }
 
   export type TicketSumAggregateOutputType = {
     id: number | null
+    Telephone: number | null
   }
 
   export type TicketMinAggregateOutputType = {
     id: number | null
     Nom: string | null
     Email: string | null
+    Telephone: number | null
     Aller: string | null
     Aller_Horraire: string | null
     Retour: string | null
@@ -908,6 +911,7 @@ export namespace Prisma {
     id: number | null
     Nom: string | null
     Email: string | null
+    Telephone: number | null
     Aller: string | null
     Aller_Horraire: string | null
     Retour: string | null
@@ -919,6 +923,7 @@ export namespace Prisma {
     id: number
     Nom: number
     Email: number
+    Telephone: number
     Aller: number
     Aller_Horraire: number
     Retour: number
@@ -930,16 +935,19 @@ export namespace Prisma {
 
   export type TicketAvgAggregateInputType = {
     id?: true
+    Telephone?: true
   }
 
   export type TicketSumAggregateInputType = {
     id?: true
+    Telephone?: true
   }
 
   export type TicketMinAggregateInputType = {
     id?: true
     Nom?: true
     Email?: true
+    Telephone?: true
     Aller?: true
     Aller_Horraire?: true
     Retour?: true
@@ -951,6 +959,7 @@ export namespace Prisma {
     id?: true
     Nom?: true
     Email?: true
+    Telephone?: true
     Aller?: true
     Aller_Horraire?: true
     Retour?: true
@@ -962,6 +971,7 @@ export namespace Prisma {
     id?: true
     Nom?: true
     Email?: true
+    Telephone?: true
     Aller?: true
     Aller_Horraire?: true
     Retour?: true
@@ -1060,6 +1070,7 @@ export namespace Prisma {
     id: number
     Nom: string
     Email: string
+    Telephone: number
     Aller: string
     Aller_Horraire: string
     Retour: string
@@ -1090,6 +1101,7 @@ export namespace Prisma {
     id?: boolean
     Nom?: boolean
     Email?: boolean
+    Telephone?: boolean
     Aller?: boolean
     Aller_Horraire?: boolean
     Retour?: boolean
@@ -1101,6 +1113,7 @@ export namespace Prisma {
     id?: boolean
     Nom?: boolean
     Email?: boolean
+    Telephone?: boolean
     Aller?: boolean
     Aller_Horraire?: boolean
     Retour?: boolean
@@ -1112,6 +1125,7 @@ export namespace Prisma {
     id?: boolean
     Nom?: boolean
     Email?: boolean
+    Telephone?: boolean
     Aller?: boolean
     Aller_Horraire?: boolean
     Retour?: boolean
@@ -1123,6 +1137,7 @@ export namespace Prisma {
     id?: boolean
     Nom?: boolean
     Email?: boolean
+    Telephone?: boolean
     Aller?: boolean
     Aller_Horraire?: boolean
     Retour?: boolean
@@ -1130,7 +1145,7 @@ export namespace Prisma {
     createdAt?: boolean
   }
 
-  export type TicketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "Nom" | "Email" | "Aller" | "Aller_Horraire" | "Retour" | "Retour_Horraire" | "createdAt", ExtArgs["result"]["ticket"]>
+  export type TicketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "Nom" | "Email" | "Telephone" | "Aller" | "Aller_Horraire" | "Retour" | "Retour_Horraire" | "createdAt", ExtArgs["result"]["ticket"]>
 
   export type $TicketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Ticket"
@@ -1139,6 +1154,7 @@ export namespace Prisma {
       id: number
       Nom: string
       Email: string
+      Telephone: number
       Aller: string
       Aller_Horraire: string
       Retour: string
@@ -1570,6 +1586,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Ticket", 'Int'>
     readonly Nom: FieldRef<"Ticket", 'String'>
     readonly Email: FieldRef<"Ticket", 'String'>
+    readonly Telephone: FieldRef<"Ticket", 'Int'>
     readonly Aller: FieldRef<"Ticket", 'String'>
     readonly Aller_Horraire: FieldRef<"Ticket", 'String'>
     readonly Retour: FieldRef<"Ticket", 'String'>
@@ -1959,6 +1976,7 @@ export namespace Prisma {
     id: 'id',
     Nom: 'Nom',
     Email: 'Email',
+    Telephone: 'Telephone',
     Aller: 'Aller',
     Aller_Horraire: 'Aller_Horraire',
     Retour: 'Retour',
@@ -2056,6 +2074,7 @@ export namespace Prisma {
     id?: IntFilter<"Ticket"> | number
     Nom?: StringFilter<"Ticket"> | string
     Email?: StringFilter<"Ticket"> | string
+    Telephone?: IntFilter<"Ticket"> | number
     Aller?: StringFilter<"Ticket"> | string
     Aller_Horraire?: StringFilter<"Ticket"> | string
     Retour?: StringFilter<"Ticket"> | string
@@ -2067,6 +2086,7 @@ export namespace Prisma {
     id?: SortOrder
     Nom?: SortOrder
     Email?: SortOrder
+    Telephone?: SortOrder
     Aller?: SortOrder
     Aller_Horraire?: SortOrder
     Retour?: SortOrder
@@ -2081,6 +2101,7 @@ export namespace Prisma {
     NOT?: TicketWhereInput | TicketWhereInput[]
     Nom?: StringFilter<"Ticket"> | string
     Email?: StringFilter<"Ticket"> | string
+    Telephone?: IntFilter<"Ticket"> | number
     Aller?: StringFilter<"Ticket"> | string
     Aller_Horraire?: StringFilter<"Ticket"> | string
     Retour?: StringFilter<"Ticket"> | string
@@ -2092,6 +2113,7 @@ export namespace Prisma {
     id?: SortOrder
     Nom?: SortOrder
     Email?: SortOrder
+    Telephone?: SortOrder
     Aller?: SortOrder
     Aller_Horraire?: SortOrder
     Retour?: SortOrder
@@ -2111,6 +2133,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Ticket"> | number
     Nom?: StringWithAggregatesFilter<"Ticket"> | string
     Email?: StringWithAggregatesFilter<"Ticket"> | string
+    Telephone?: IntWithAggregatesFilter<"Ticket"> | number
     Aller?: StringWithAggregatesFilter<"Ticket"> | string
     Aller_Horraire?: StringWithAggregatesFilter<"Ticket"> | string
     Retour?: StringWithAggregatesFilter<"Ticket"> | string
@@ -2121,8 +2144,9 @@ export namespace Prisma {
   export type TicketCreateInput = {
     Nom: string
     Email: string
-    Aller: string
-    Aller_Horraire: string
+    Telephone?: number
+    Aller?: string
+    Aller_Horraire?: string
     Retour?: string
     Retour_Horraire?: string
     createdAt?: Date | string
@@ -2132,8 +2156,9 @@ export namespace Prisma {
     id?: number
     Nom: string
     Email: string
-    Aller: string
-    Aller_Horraire: string
+    Telephone?: number
+    Aller?: string
+    Aller_Horraire?: string
     Retour?: string
     Retour_Horraire?: string
     createdAt?: Date | string
@@ -2142,6 +2167,7 @@ export namespace Prisma {
   export type TicketUpdateInput = {
     Nom?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
+    Telephone?: IntFieldUpdateOperationsInput | number
     Aller?: StringFieldUpdateOperationsInput | string
     Aller_Horraire?: StringFieldUpdateOperationsInput | string
     Retour?: StringFieldUpdateOperationsInput | string
@@ -2153,6 +2179,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     Nom?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
+    Telephone?: IntFieldUpdateOperationsInput | number
     Aller?: StringFieldUpdateOperationsInput | string
     Aller_Horraire?: StringFieldUpdateOperationsInput | string
     Retour?: StringFieldUpdateOperationsInput | string
@@ -2164,8 +2191,9 @@ export namespace Prisma {
     id?: number
     Nom: string
     Email: string
-    Aller: string
-    Aller_Horraire: string
+    Telephone?: number
+    Aller?: string
+    Aller_Horraire?: string
     Retour?: string
     Retour_Horraire?: string
     createdAt?: Date | string
@@ -2174,6 +2202,7 @@ export namespace Prisma {
   export type TicketUpdateManyMutationInput = {
     Nom?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
+    Telephone?: IntFieldUpdateOperationsInput | number
     Aller?: StringFieldUpdateOperationsInput | string
     Aller_Horraire?: StringFieldUpdateOperationsInput | string
     Retour?: StringFieldUpdateOperationsInput | string
@@ -2185,6 +2214,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     Nom?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
+    Telephone?: IntFieldUpdateOperationsInput | number
     Aller?: StringFieldUpdateOperationsInput | string
     Aller_Horraire?: StringFieldUpdateOperationsInput | string
     Retour?: StringFieldUpdateOperationsInput | string
@@ -2233,6 +2263,7 @@ export namespace Prisma {
     id?: SortOrder
     Nom?: SortOrder
     Email?: SortOrder
+    Telephone?: SortOrder
     Aller?: SortOrder
     Aller_Horraire?: SortOrder
     Retour?: SortOrder
@@ -2242,12 +2273,14 @@ export namespace Prisma {
 
   export type TicketAvgOrderByAggregateInput = {
     id?: SortOrder
+    Telephone?: SortOrder
   }
 
   export type TicketMaxOrderByAggregateInput = {
     id?: SortOrder
     Nom?: SortOrder
     Email?: SortOrder
+    Telephone?: SortOrder
     Aller?: SortOrder
     Aller_Horraire?: SortOrder
     Retour?: SortOrder
@@ -2259,6 +2292,7 @@ export namespace Prisma {
     id?: SortOrder
     Nom?: SortOrder
     Email?: SortOrder
+    Telephone?: SortOrder
     Aller?: SortOrder
     Aller_Horraire?: SortOrder
     Retour?: SortOrder
@@ -2268,6 +2302,7 @@ export namespace Prisma {
 
   export type TicketSumOrderByAggregateInput = {
     id?: SortOrder
+    Telephone?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2322,16 +2357,16 @@ export namespace Prisma {
     set?: string
   }
 
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {

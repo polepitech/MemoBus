@@ -8,14 +8,15 @@ export async function POST(req){
     // console.log(body);
 
   
-    const {prenom,email,Aller,Retour,Aller_Horraire,Retour_Horraire} = body;
-    if (!prenom || !email || !Aller || !Aller_Horraire) {
+    const {prenom,email,Aller,Retour,Aller_Horraire,Retour_Horraire,telephone} = body;
+    if (!prenom || !email || !telephone) {
         return NextResponse.json({ message: "Tout les champs ne sont pas rempli" }, { status: 400 });
     }else{
         try {
             const data = { 
                 Nom: prenom,
                 Email: email,
+                Telephone: parseInt(telephone),
                 Aller: Aller,
                 Retour: Retour,
                 Aller_Horraire: Aller_Horraire,

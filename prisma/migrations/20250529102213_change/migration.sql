@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Ticket" ADD COLUMN     "Telephone" INTEGER NOT NULL DEFAULT 0,
+ALTER COLUMN "Aller" SET DEFAULT 'No',
+ALTER COLUMN "Aller_Horraire" SET DEFAULT 'No';

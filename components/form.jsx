@@ -8,7 +8,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
@@ -21,25 +20,37 @@ export default function Form() {
   const [loading, setLoading] = React.useState(false);
   const [aller, setAller] = useState('');
   const [retour, setRetour] = useState('');
+  const [error, seterror] = useState('');
 
 
   const horairesAller = {
-    vendredi: ['15h', '17h', '20h'],
-    samedi: ['10h', '12h', '14h', '16h','18h'],
-    dimanche: ['12h','14h','16h', '18h'],
+    vendredi: ['15h30', '17h30', '20h'],
+    samedi: ['10h30', '12h30', '14h30', '16h30','18h30'],
+    dimanche: ['11h30','13h30','15h30', '17h30'],
   }
   const horairesRetour = {
     vendredi: [ '19h30'],
-    samedi: ['9h30', '11h30', '13h30', '15h30','17h30'],
-    dimanche: ['11h30','13h30','15h30', '17h30'],
+    samedi: ['10H', '12H', '14h0', '16h00','18h00'],
+    dimanche: ['11h00','13h00','15h00', '17h00'],
   }
 
   const handlesubmit = async (e) =>{
     e.preventDefault();
     setLoading(true);
-
+    if (!aller && !retour) {
+      seterror("Merci de sélectionner au moins un aller ou un retour !");
+      setLoading(false);
+      return;
+    }
+    
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
+    console.log(data)
+    if((aller && !data.Aller_Horraire)||(retour && !data.Retour_Horraire)){
+      seterror("Merci de sélectionner une horraire !");
+      setLoading(false);
+      return;
+    }
     const result = await fetch('/api/ticket', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -60,6 +71,7 @@ export default function Form() {
   }
   
   const thx = () =>{
+    seterror('');
     setLoading(false);
     gsap.to('.bus',{
      display:'none'
@@ -97,9 +109,10 @@ export default function Form() {
             <form onSubmit={handlesubmit} className="space-y-4">
                   <Input required name='prenom' type="text" placeholder="Ton petit nom ?" />
                   <Input required name='email' type="email" placeholder="Un mail ?" />
+                  <Input required name='telephone' type="telephone" placeholder="Un 06 ?" />
                   <Label>Aller</Label>
                   <div className="aller flex justify-between">
-                    <Select required name='Aller' onValueChange={(e) => {
+                    <Select name='Aller' onValueChange={(e) => {
                       setAller(e)
                     }}>
                       <SelectTrigger className="w-[48%]">
@@ -113,7 +126,7 @@ export default function Form() {
                         </SelectGroup>
                       </SelectContent>
                     </Select>
-                    <Select required name='Aller_Horraire'>
+                    <Select name='Aller_Horraire'>
                       <SelectTrigger className="w-[48%]">
                         <SelectValue placeholder="Choisi l'horraire" />
                       </SelectTrigger>
@@ -162,6 +175,7 @@ export default function Form() {
                     </Select>
                   </div>
 
+              <p className='text-red-600'>{error}</p>
               {!loading && (<Button type="submit" className="w-full mb-4 mt-4">Réserver</Button>)}
               {loading && (
                 <Button disabled className={'w-full mb-4 mt-4'}>
